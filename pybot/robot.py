@@ -5,7 +5,7 @@
 # the WPILib BSD license file in the root directory of this project.
 #
 
-import os, typing
+import typing
 import wpilib, commands2
 
 import autos
@@ -24,6 +24,7 @@ class MyRobot(wpilib.TimedRobot):
         self.container = RobotContainer()
         self.scheduler = commands2.CommandScheduler.getInstance()
         self.registerTrajectories()
+        wpilib.CameraServer.launch ('vision.py:main')
 
     def registerTrajectories(self) -> None:
         self.chooser = autos.createChooser()
