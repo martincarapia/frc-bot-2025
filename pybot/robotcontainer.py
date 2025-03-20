@@ -146,9 +146,9 @@ class RobotContainer:
             lambda: self.intake.stop()
         ))
 
-        self._joystick.b().whileTrue(commands2.cmd.run(
-            lambda: self.create_point_at_coordinate_request(), self.drivetrain
-        ))
+        #self._joystick.b().whileTrue(commands2.cmd.run(
+        #    lambda: self.create_point_at_coordinate_request(), self.drivetrain
+        #))
 
         #self._joystick.start().whileTrue(commands2.cmd.run(
         #    lambda: self.create_go_to_coordinate_request(), self.drivetrain
@@ -161,8 +161,7 @@ class RobotContainer:
         from autos import FollowTrajectory
         return FollowTrajectory (self.drivetrain,
                                  self.intake,
-                                 selected,
-                                 is_red_alliance = self.isRedAlliance())
+                                 selected)
     
     def _registerTelemetry (self) -> None:
         self.drivetrain.register_telemetry(
